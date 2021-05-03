@@ -3,4 +3,8 @@
     <string name="button">Calculate</string>
     <string name="name">Input Text Here</string>
     <string name='spinner'>Choose</string>
+    <string-array name = 'options'>
+        <item>Words</item>
+        <item>Characters</item>
+    </string-array>
 </resources>
