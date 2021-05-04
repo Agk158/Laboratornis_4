@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Laboras_2</string>
     <string name="button">Calculate</string>
+    <string name="char_selection">Char</string>
     <string name="name">Input Text Here</string>
     <string name='spinner'>Choose</string>
     <string-array name = 'options'>

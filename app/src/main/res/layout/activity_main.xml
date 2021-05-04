@@ -28,7 +28,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Output"
-        app:layout_constraintVertical_bias="0.761"/>
+        app:layout_constraintVertical_bias="0.761"
+        android:onClick="OnBtnClick"/>
 
     <EditText
         android:id="@+id/InputText"
@@ -36,7 +37,7 @@
         android:layout_height="65dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Input Text"
+        android:text="Enter Text"
         app:layout_constraintBottom_toTopOf="@+id/Output"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.803" />
+        app:layout_constraintVertical_bias="0.803"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
