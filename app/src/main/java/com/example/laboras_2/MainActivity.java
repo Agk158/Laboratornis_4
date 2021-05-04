@@ -2,6 +2,7 @@ package com.example.laboras_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.icu.util.Output;
 import android.os.Bundle;
 import android.text.GetChars;
 import android.view.View;
@@ -15,35 +16,42 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner Selector;
+    Spinner selector;
+    EditText inputText;
+    TextView result;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_main );
 
-        this.Selector = findViewById(R.id.Selector);
+        this.selector = findViewById( R.id.selector );
+        this.inputText = findViewById( R.id.inputText );
+        this.result = findViewById( R.id.output );
 
-
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.options, android.R.layout.simple_spinner_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        this.Selector.setAdapter(arrayAdapter);
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource( this, R.array.options, android.R.layout.simple_spinner_item );
+        arrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
+        this.selector.setAdapter( arrayAdapter );
     }
 
-    public void OnBtnClick (View view) {
-        EditText InputText = findViewById( R.id.InputText );
-        TextView Output = findViewById( R.id.Output );
-        String userInputText = InputText.getText().toString();
+    public void OnBtnClick(View Result) {
 
-        String selection = this.Selector.getSelectedItem().toString();
-        String resValue = getResources().getString( R.string.char_selection );
-        Toast.makeText(this, String.valueOf( resValue), Toast.LENGTH_SHORT).show();
+        String userInputText = inputText.getText().toString();
+        String selection = this.selector.getSelectedItem().toString();
+        String charSelectionOption = getResources().getString( R.string.char_selection );
+        String wordSelectionOption = getResources().getString( R.string.word_selection );
 
-
-        if (selection.equalsIgnoreCase(resValue)) {
-            int count = userInputText.length();
-            Output.setText( String.valueOf(count));
+        if (selection.equalsIgnoreCase( charSelectionOption )) {
+            int count = elementsCalculator.getCharsCount( userInputText );
+            result.setText( String.valueOf( count ) );
         }
-
+        if (selection.equalsIgnoreCase( getResources().getString( R.string.number_selection ) )) {
+            result.setText( String.valueOf( elementsCalculator.getNumbersCount( userInputText ) ) );
+        }
+        if (selection.equalsIgnoreCase( wordSelectionOption )) {
+            int count = elementsCalculator.getWordsCount( userInputText );
+            result.setText( String.valueOf( count ) );
+        }
     }
 }
