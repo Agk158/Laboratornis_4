@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             int count = elementsCalculator.getCharsCount( userInputText );
             result.setText( String.valueOf( count ) );
         }
+
         if (selection.equalsIgnoreCase( getResources().getString( R.string.number_selection ) )) {
             result.setText( String.valueOf( elementsCalculator.getNumbersCount( userInputText ) ) );
         }
